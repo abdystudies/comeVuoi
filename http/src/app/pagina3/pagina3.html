@@ -1,0 +1,18 @@
+	<!-- Campo di ricerca per meteo -->
+	<h1 class="meteo-title">Che tempo fa oggi a...</h1>
+	<p class="meteo-subtitle">Inserisci CAP, città o coordinate e premi Invio o clicca Cerca</p>
+<div class="meteo-search">
+	<input id="position" #posInput type="text" placeholder="es. 20121 o Milano o 45.46,9.19" (keyup.enter)="searchMeteo(posInput.value)" />
+	<button (click)="searchMeteo(posInput.value)">Cerca</button>
+</div>
+
+<!-- Risultato meteo -->
+<div class="meteo-result" *ngIf="meteo">
+	<h4>Meteo per: {{ meteo.location?.name }} {{ meteo.location?.region ? (', ' + meteo.location.region) : '' }}</h4>
+    <h6>Orario locale: <strong>{{meteo.location?.localtime}}</strong></h6>
+	<p>Temperatura: <strong>{{ meteo.current?.temp_c }} °C</strong></p>
+	<p>Tempo: <strong>{{ meteo.current?.condition?.text }}</strong></p>
+	<img *ngIf="meteo.current?.condition?.icon" [src]="'https:' + meteo.current.condition.icon" alt="icona meteo" />
+</div>
+
+<div class="meteo-error" *ngIf="error && !meteo">{{ error }}</div>

@@ -1,0 +1,128 @@
+/* Stili per il campo di ricerca meteo in pagina3 */
+.meteo-search {
+	display: flex;
+	justify-content: center; /* centra orizzontalmente la search box nella pagina */
+	align-items: center;
+	margin: 24px 0;
+}
+
+.meteo-search > input#position {
+	max-width: 520px;
+	width: 60%;
+	min-width: 200px;
+	padding: 12px 16px;
+	padding-right: 44px; /* spazio per il bottone se si sovrappone */
+	border: 1px solid rgba(0,0,0,0.12);
+	border-radius: 999px; /* pienamente stondato */
+	font-size: 16px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+	transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.meteo-search > input#position:focus {
+	outline: none;
+	border-color: rgba(0,0,0,0.24);
+	box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.meteo-search > button {
+	margin-left: 12px;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(180deg,#1976d2,#1565c0); /* blu coerente, puoi cambiare per il tema */
+	color: #fff;
+	border: none;
+	padding: 10px 14px;
+	border-radius: 999px;
+	font-size: 16px;
+	cursor: pointer;
+	box-shadow: 0 4px 10px rgba(21,101,192,0.12);
+	transition: transform 120ms ease, box-shadow 120ms ease, opacity 120ms ease;
+}
+
+.meteo-search > button:active {
+	transform: translateY(1px) scale(0.996);
+}
+
+.meteo-search > button:hover {
+	box-shadow: 0 6px 16px rgba(21,101,192,0.16);
+}
+
+/* Icona semplice nel bottone: usiamo un carattere emoji per semplicità e compatibilità */
+.meteo-search > button::before {
+	content: "🔍";
+	margin-right: 6px;
+	display: inline-block;
+	transform: translateY(-1px);
+}
+
+.meteo-result {
+	max-width: 640px;
+	margin: 12px auto;
+	padding: 14px 18px;
+	border-radius: 10px;
+	background: #fff;
+	box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+	font-size: 15px;
+}
+
+.meteo-result h4 {
+	margin: 0 0 8px 0;
+}
+
+.meteo-error {
+	max-width: 640px;
+	margin: 12px auto;
+	padding: 10px 14px;
+	border-radius: 8px;
+	background: #fff5f5;
+	color: #a12;
+	border: 1px solid rgba(161,18,18,0.08);
+}
+
+/* Risponso mobile: rimpicciolisce e mette input a tutta larghezza */
+@media (max-width: 520px) {
+	.meteo-search {
+		padding: 0 12px;
+	}
+	.meteo-search > input#position {
+		width: 100%;
+		max-width: none;
+	}
+	.meteo-search > button {
+		margin-left: 8px;
+		padding: 8px 10px;
+	}
+}
+
+/* Titolo carino e centrato per la sezione meteo */
+.meteo-title {
+	text-align: center;
+	color: #1565c0; /* colore coerente con il tema blu */
+	font-size: 28px;
+	font-weight: 700;
+	margin: 10px 0 4px;
+	letter-spacing: 0.2px;
+}
+
+.meteo-subtitle {
+	text-align: center;
+	color: #475569;
+	margin: 0 0 12px 0;
+	font-size: 14px;
+	opacity: 0.95;
+}
+
+/* Piccolo tocco decorativo: una barra sottile sotto il titolo */
+.meteo-title::after {
+	content: '';
+	display: block;
+	width: 68px;
+	height: 4px;
+	margin: 10px auto 0;
+	border-radius: 999px;
+	background: linear-gradient(90deg,#1976d2,#4fc3f7);
+	box-shadow: 0 6px 12px rgba(25,118,210,0.08);
+}
+
